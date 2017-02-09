@@ -14,7 +14,7 @@ export default function configureStore(initialState) {//接收一个初始值
 
   
   //写法一（推荐）
-  
+  /*
   const store = createStore(
     rootReducer,
     initialState,
@@ -23,14 +23,18 @@ export default function configureStore(initialState) {//接收一个初始值
         window.devToolsExtension ? window.devToolsExtension() : (f) => f//调用开发命令行
     )
   );
+  */
 
-
-  //写法二
+  //写法二  
   //applyMiddleware来自redux可以包装 store 的 dispatch
   //thunk作用是使action创建函数可以返回一个function代替一个action对象
-  //const store = compose(applyMiddleware(thunkMiddleware)(createStore)(rootReducer, initialState))
-
-
+  const createStoreWithMiddleware = compose(
+      applyMiddleware(
+          thunkMiddleware
+      ),
+      window.devToolsExtension ? window.devToolsExtension() : f => f
+  )(createStore)
+  const store = createStoreWithMiddleware(rootReducer, initialState)
 
 
 
