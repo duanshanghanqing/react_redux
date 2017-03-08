@@ -42,6 +42,11 @@ var config =  {
 				test: /\.less$/, 
 				loader: 'style-loader!css-loader!less-loader' 
 			},
+			//解析.scss文件,对于用 import 或 require 引入的sass文件进行加载，以及<style lang="sass">...</style>声明的内部样式进行加载
+            {
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!scss-loader' //这里用了样式分离出来的插件，如果不想分离出来，可以直接这样写 loader:'style!css!sass'
+            },
 			//编译es6
 			/*{ 
 				test: /\.js$/, 

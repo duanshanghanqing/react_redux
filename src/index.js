@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { Router, hashHistory, browserHistory } from 'react-router'
 import App from './containers/App';//加载容器
 import configureStore from './store/configureStore';
 
@@ -11,6 +12,11 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>, rootEl);
+
 /*
-<Provider store> 使组件层级中的 connect() 方法都能够获得 Redux store。正常情况下，你的根组件应该嵌套在 <Provider> 中才能使用 connect() 方法。
-*/
+ReactDOM.render(
+  <Provider store={store}>
+    <Router  history={browserHistory} children={routes} />
+  </Provider>,
+  rootEl
+)*/
