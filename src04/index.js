@@ -13,5 +13,4 @@ ReactDOM.render(
   </Provider>, rootEl);
 /*
 <Provider store> 使组件层级中的 connect() 方法都能够获得 Redux store。正常情况下，你的根组件应该嵌套在 <Provider> 中才能使用 connect() 方法。
-http://localhost:9999/views/#/
 */

@@ -71,7 +71,7 @@ export default connect(
 
 //方式三（优先级一）
 
-import Counter from '../components/index';
+import Counter from '../components/Counter';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as ActionCreators from '../actions';
